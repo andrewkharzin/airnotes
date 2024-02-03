@@ -48,7 +48,7 @@ export default function AircraftPage() {
 			</div>
 			<Divider className="" />
 			<p className="mt-10 text-extralight uppercase dark:text-slate-300 text-slate-500"><span className="text-fuchsia-600 text-bold">COMPARTMENT</span> | Weight Limitation</p>
-			<div className="flex flex-wrap gap-8 mb-10 ">
+			<div className="flex flex-col gap-8 mb-10 ">
 	
 				<div className="mt-10">
 

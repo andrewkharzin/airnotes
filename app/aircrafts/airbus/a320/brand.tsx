@@ -1,14 +1,30 @@
-import React from "react";
+// import React from "react";
+import React from 'react';
 import { title, subtitle } from "@/components/primitives";
 import { useEffect, useState } from 'react';
 import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@nextui-org/react";
 import { Checkbox } from "@nextui-org/react";
 import { Tooltip, Button } from "@nextui-org/react";
 import { HeartIcon } from '../../Icons/HeartIcon';
+import { PlusIcon } from '../../Icons/PlusIcon';
 import { Chip } from "@nextui-org/react";
+import ShareButton from "@/components/utilities/ShareButton";
+import UserModalTable from "@/components/users/tables/ModalFrame";
+import ShareNav from "@/components/dashboard/user/navboards/SharesNav";
 
 export default function App() {
     const [isMobile, setIsMobile] = useState(false);
+    const [isModalOpen, setModalOpen] = useState(false);
+
+    const handleShareClick = () => {
+        // Handle share logic here
+        console.log('Sharing with user...');
+        setModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setModalOpen(false);
+    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -66,13 +82,7 @@ export default function App() {
             </CardBody>
             <Divider />
             <CardFooter>
-                <Checkbox defaultSelected icon={<HeartIcon />}>
-                    <span className="text-xs text-slate-400 text-extralight">Favorite</span>
-                </Checkbox>
-                <div className="flex flex-wrap gap-4">
-
-
-                </div>
+                <ShareNav />
             </CardFooter>
         </Card>
     );
