@@ -20,6 +20,9 @@ export const title = tv({
 		fullWidth: {
 			true: "w-full block",
 		},
+		style: {
+			up: "uppercase"
+		}
 	},
 	defaultVariants: {
 		size: "md",

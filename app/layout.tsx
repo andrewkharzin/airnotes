@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { Roboto, Playfair_Display } from "next/font/google";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
@@ -6,6 +7,19 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
+
+
+const roboto_init = Roboto({
+	subsets: ['latin'],
+	weight: ['100', '300' ,'500', '700'],
+	variable: '--font-roboto'
+})
+
+const play = Playfair_Display({
+	subsets: ['latin'],
+	weight: ['600'],
+	variable: '--font-playfair_display'
+})
 
 export const metadata: Metadata = {
 	title: {
