@@ -1,4 +1,7 @@
+
+
 import "@/styles/globals.css";
+
 import { Roboto, Playfair_Display } from "next/font/google";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
@@ -7,6 +10,9 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 
 const roboto_init = Roboto({
@@ -21,28 +27,15 @@ const play = Playfair_Display({
 	variable: '--font-playfair_display'
 })
 
-export const metadata: Metadata = {
-	title: {
-		default: siteConfig.name,
-		template: `%s - ${siteConfig.name}`,
-	},
-	description: siteConfig.description,
-	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "white" },
-		{ media: "(prefers-color-scheme: dark)", color: "black" },
-	],
-	icons: {
-		icon: "/favicon.ico",
-		shortcut: "/favicon-16x16.png",
-		apple: "/apple-touch-icon.png",
-	},
-};
 
 export default function RootLayout({
 	children,
+	isDashboardPage = false // Default to false, assuming it's not a dashboard page
 }: {
 	children: React.ReactNode;
+	isDashboardPage?: boolean;
 }) {
+
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head />
@@ -54,7 +47,8 @@ export default function RootLayout({
 			>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
 					<div className="relative flex flex-col h-screen">
-						<Navbar />
+					{!isDashboardPage && <Navbar />}
+						{/* <Navbar /> */}
 						<main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
 							{children}
 						</main>
