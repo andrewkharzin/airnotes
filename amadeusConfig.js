@@ -2,8 +2,8 @@
 import Amadeus from 'amadeus';
 
 const amadeusConfig = {
-  clientId: 'YmUQLo3Q3XGAStSZqpgYJUSBiFhcYZ62',
-  clientSecret: 'bftjoVyaaVQ0eA8z',
+  clientId: '',
+  clientSecret: '',
 };
 
 const createAmadeusClient = () => new Amadeus(amadeusConfig);
